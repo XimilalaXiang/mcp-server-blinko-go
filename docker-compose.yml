@@ -1,0 +1,13 @@
+services:
+  blinko-mcp:
+    image: blinko-mcp-go:latest
+    container_name: blinko-mcp-go
+    restart: unless-stopped
+    ports:
+      - "8795:8080"
+    environment:
+      - BLINKO_DOMAIN=${BLINKO_DOMAIN}
+      - BLINKO_API_KEY=${BLINKO_API_KEY}
+      - MCP_TRANSPORT=sse
+      - MCP_PORT=8080
+      - MCP_AUTH_TOKEN=${MCP_AUTH_TOKEN}
